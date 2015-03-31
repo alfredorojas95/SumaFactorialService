@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from serSumaFacService WSDL service -->
+
+  <service name="serSumaFac" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servicio_met"/>
+      <parameter name="wsdlServiceElement" value="serSumaFacService"/>
+      <parameter name="schemaQualified" value="http://servicio_met"/>
+      <parameter name="wsdlServicePort" value="serSumaFac"/>
+      <parameter name="className" value="servicio_met.SerSumaFacSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="serSumaFac"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="factorial" qname="operNS:factorial" xmlns:operNS="http://servicio_met" returnQName="retNS:factorialReturn" xmlns:retNS="http://servicio_met" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://servicio_met" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sumar" qname="operNS:sumar" xmlns:operNS="http://servicio_met" returnQName="retNS:sumarReturn" xmlns:retNS="http://servicio_met" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://servicio_met" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://servicio_met" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="factorial sumar"/>
+
+  </service>
+</deployment>
