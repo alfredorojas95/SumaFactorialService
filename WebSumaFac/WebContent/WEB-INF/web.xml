@@ -13,7 +13,7 @@
     <description></description>
     <display-name>SumaFacServlet</display-name>
     <servlet-name>SumaFacServlet</servlet-name>
-    <servlet-class>sumafac.servlet.SumaFacServlet</servlet-class>
+    <servlet-class>Control.SumarNum</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SumaFacServlet</servlet-name>

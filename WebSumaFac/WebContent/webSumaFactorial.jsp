@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Suma de dos numeros</h1>
-	<form action="SumarNum" method="get">
+	<form action="SumaFacServlet" method="get">
 		<input type="text" name="num1" required></input>
 		<input type="text" name="num2" required></input>
 		<button type="submit" value="Sumar">Sumar</button>
